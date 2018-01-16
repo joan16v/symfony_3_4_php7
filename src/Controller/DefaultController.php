@@ -9,7 +9,7 @@ class DefaultController
     public function index()
     {
         return new Response(
-            '<html><body>Index</body></html>'
+            '<html><body>Index page</body></html>'
         );
     }
 
