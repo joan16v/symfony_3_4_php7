@@ -8,10 +8,8 @@ class DefaultController
 {
     public function index()
     {
-        $number = mt_rand(0, 100);
-
         return new Response(
-            '<html><body>Lucky number: '.$number.'</body></html>'
+            '<html><body>Index</body></html>'
         );
     }
 
