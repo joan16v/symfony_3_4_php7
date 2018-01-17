@@ -1,6 +1,31 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    psql_database_driver: pdo_pgsql
+    psql_database_host: '127.0.0.1'
+    psql_database_port: 5432
+    psql_database_name: symfony
+    psql_database_user: postgres
+    psql_database_password: postgres
+
+doctrine:
+    dbal:
+        default_connection: pgsql
+        connections:
+           pgsql:
+                driver: "%psql_database_driver%"
+                host: "%psql_database_host%"
+                port: "%psql_database_port%"
+                dbname: "%psql_database_name%"
+                user: "%psql_database_user%"
+                password: "%psql_database_password%"
+                charset: UTF8
+                unix_socket: /tmp/mysql.sock
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
 
 services:
     # default configuration for services in *this* file
