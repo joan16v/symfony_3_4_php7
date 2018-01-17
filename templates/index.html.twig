@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Index</title>
+    </head>
+    <body>
+        <div>Index</div>
+        <div>{{ parameter }}</div>
+        <div>
+            {% for product in products %}
+                <li>{{ product.name }}</li>
+            {% endfor %}
+        </div>
+    </body>
+</html>

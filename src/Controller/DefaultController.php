@@ -4,17 +4,21 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use App\Entity\Product;
 
 class DefaultController extends Controller
 {
     public function index()
     {
-        $response = '<html><body>';
-        $response .= '<div>Index</div>';
-        $response .= '<div>' . $this->container->getParameter('psql_database_host') . '</div>';
-        $response .= '<html></body></html>';
+        $repository = $this->getDoctrine()->getRepository(Product::class);
 
-        return new Response($response);
+        return $this->render(
+            'index.html.twig',
+            array(
+                'parameter' => $this->container->getParameter('psql_database_host'),
+                'products' => $repository->findAll(),
+            )
+        );
     }
 
     public function number()
