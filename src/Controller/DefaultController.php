@@ -26,7 +26,7 @@ class DefaultController extends Controller
         $number = mt_rand(0, 100);
 
         return new Response(
-            '<html><body>Lucky number: '.$number.'</body></html>'
+            '<html><body>Lucky number: ' . $number . '</body></html>'
         );
     }
 }
