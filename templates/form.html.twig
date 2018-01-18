@@ -5,6 +5,10 @@
     <body>
         <h1>Form product</h1>
         <div>-----------------</div>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+        <div>-----------------</div>
         <div><a href="{{ path('index') }}">Index</a></div>
     </body>
 </html>
