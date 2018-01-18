@@ -12,6 +12,10 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class DefaultController extends Controller
 {
+    public function __construct()
+    {
+    }
+
     public function index()
     {
         $repository = $this->getDoctrine()->getRepository(Product::class);
