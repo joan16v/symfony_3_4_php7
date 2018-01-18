@@ -65,6 +65,38 @@ class DefaultController extends Controller
         );
     }
 
+    public function editProduct(Request $request, $id)
+    {
+        $repository = $this->getDoctrine()->getRepository(Product::class);
+        $product = $repository->findOneById($id);
+
+        $form = $this->createFormBuilder($product)
+            ->add('name', TextType::class)
+            ->add('description', TextType::class)
+            ->add('price', NumberType::class)
+            ->add('save', SubmitType::class, array('label' => 'Edit Product'))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $product = $form->getData();
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($product);
+            $em->flush();
+
+            return $this->redirectToRoute('index');
+        }
+
+        return $this->render(
+            'form.html.twig',
+            array(
+                'form' => $form->createView(),
+            )
+        );
+    }
+
     public function deleteProduct($id)
     {
         $repository = $this->getDoctrine()->getRepository(Product::class);
