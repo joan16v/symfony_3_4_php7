@@ -8,6 +8,7 @@
         <div>Parameter test: {{ parameter }}</div>
         <div>------------------</div>
         <div>Products list:</div>
+        <div>------------------</div>
         <div>
             {% for product in products %}
                 <li>{{ product.name }} - {{ product.description }} - {{ product.price }} [<a href="{{ path('delete_product', {id: product.id}) }}">delete</a>]</li>

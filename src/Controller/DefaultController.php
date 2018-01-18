@@ -20,7 +20,7 @@ class DefaultController extends Controller
             'index.html.twig',
             array(
                 'parameter' => $this->container->getParameter('psql_database_host'),
-                'products' => $repository->findAll(),
+                'products' => $repository->findBy(array(), array('name' => 'ASC')),
             )
         );
     }
