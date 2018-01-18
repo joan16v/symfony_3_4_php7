@@ -6,6 +6,10 @@ form_product:
     path: /form
     defaults: { _controller: 'App\Controller\DefaultController::formProduct' }
 
+delete_product:
+    path: /delete/{id}
+    defaults: { _controller: 'App\Controller\DefaultController::deleteProduct' }
+
 app_lucky_number:
     path: /lucky
     controller: App\Controller\DefaultController::number

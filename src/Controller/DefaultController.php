@@ -64,4 +64,15 @@ class DefaultController extends Controller
             )
         );
     }
+
+    public function deleteProduct($id)
+    {
+        $repository = $this->getDoctrine()->getRepository(Product::class);
+        $product = $repository->findOneById($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($product);
+        $em->flush();
+
+        return $this->redirectToRoute('index');
+    }
 }

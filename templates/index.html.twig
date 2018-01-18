@@ -10,7 +10,7 @@
         <div>Products list:</div>
         <div>
             {% for product in products %}
-                <li>{{ product.name }} - {{ product.description }} - {{ product.price }}</li>
+                <li>{{ product.name }} - {{ product.description }} - {{ product.price }} [<a href="{{ path('delete_product', {id: product.id}) }}">delete</a>]</li>
             {% endfor %}
         </div>
         <div>------------------</div>
