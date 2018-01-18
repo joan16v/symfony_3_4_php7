@@ -3,12 +3,17 @@
         <title>Index</title>
     </head>
     <body>
-        <div>Index</div>
-        <div>{{ parameter }}</div>
+        <h1>Index</h1>
+        <div>------------------</div>
+        <div>Parameter test: {{ parameter }}</div>
+        <div>------------------</div>
+        <div>Products list:</div>
         <div>
             {% for product in products %}
                 <li>{{ product.name }}</li>
             {% endfor %}
         </div>
+        <div>------------------</div>
+        <div><a href="{{ path('form_product') }}">create new product</a></div>
     </body>
 </html>

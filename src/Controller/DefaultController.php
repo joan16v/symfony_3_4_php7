@@ -29,4 +29,13 @@ class DefaultController extends Controller
             '<html><body>Lucky number: ' . $number . '</body></html>'
         );
     }
+
+    public function formProduct()
+    {
+        return $this->render(
+            'form.html.twig',
+            array(
+            )
+        );
+    }
 }

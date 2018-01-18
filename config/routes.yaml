@@ -2,6 +2,10 @@ index:
     path: /
     defaults: { _controller: 'App\Controller\DefaultController::index' }
 
+form_product:
+    path: /form
+    defaults: { _controller: 'App\Controller\DefaultController::formProduct' }
+
 app_lucky_number:
     path: /lucky
     controller: App\Controller\DefaultController::number
