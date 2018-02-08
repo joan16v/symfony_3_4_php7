@@ -34,7 +34,7 @@ class DefaultController extends Controller
         $number = mt_rand(0, 100);
 
         return new Response(
-            '<html><body>Lucky number: ' . $number . '</body></html>'
+            '<html><body>The Lucky number: ' . $number . '</body></html>'
         );
     }
 
@@ -85,7 +85,6 @@ class DefaultController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $product = $form->getData();
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($product);
             $em->flush();
