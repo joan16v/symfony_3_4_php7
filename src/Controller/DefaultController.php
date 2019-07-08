@@ -53,7 +53,6 @@ class DefaultController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $product = $form->getData();
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($product);
             $em->flush();
